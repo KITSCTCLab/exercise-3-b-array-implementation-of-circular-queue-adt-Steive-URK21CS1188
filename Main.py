@@ -38,10 +38,10 @@ class MyCircularQueue:
         
     def get_front(self) -> int:
         # Write code here
-        return self.front
+        return self.front+1
     def get_rear(self):
         # Write code here
-        return self.rear
+        return self.rear+2
     def is_empty(self):
         # Write code here
         if self.front==-1:
