@@ -26,11 +26,11 @@ class MyCircularQueue:
             r=self.queue[0]
             del self.queue[0]
             self.front+=1
-            return r
+            return r    
+            return True
             if self.front==self.rear:
                 self.front=-1
                 self.rear=-1
-            return True
             else:
                 if self.front==self.size-1:
                     self.front=0
