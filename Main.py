@@ -23,10 +23,7 @@ class MyCircularQueue:
     def dequeue(self) -> bool:
         # Write code here
         if not self.is_empty():
-            r=self.queue[0]
-            del self.queue[0]
-            self.front+=1
-           # return r    
+            del self.queue[self.front]
             return True
             if self.front==self.rear:
                 self.front=-1
