@@ -24,14 +24,15 @@ class MyCircularQueue:
             del self.queue[0]
             self.front+=1
             return r
-        if self.front==self.rear:
-            self.front=-1
-            self.rear=-1
-        else:
-            if self.front==self.size-1:
-                self.front=0
+            if self.front==self.rear:
+                self.front=-1
+                self.rear=-1
             else:
-                self.front=(self.front+1)%self.size
+                if self.front==self.size-1:
+                    self.front=0
+                else:
+                    self.front=(self.front+1)%self.size
+        
     def get_front(self) -> int:
         # Write code here
         return self.front
