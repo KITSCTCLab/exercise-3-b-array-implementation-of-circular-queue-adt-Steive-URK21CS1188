@@ -15,10 +15,10 @@ class MyCircularQueue:
                 self.front=0
                 self.rear=0
              else:
-                if self.rear==self.size-1:
-                    self.rear=0
-                else:
-                    self.rear=(self.rear+1)%self.size
+                #if self.rear==self.size-1:
+                 #   self.rear=0
+                #else:
+                self.rear=(self.rear+1)%self.size
              self.queue[self.rear]=value
              return True
                
@@ -29,13 +29,13 @@ class MyCircularQueue:
         else:
              if (self.front == self.rear):
                 temp=self.queue[self.front]
-                del self.queue[self.front]
+                #del self.queue[self.front]
                 self.front = -1
                 self.rear = -1
                 return True
              else:
                 temp = self.queue[self.front]
-                del self.queue[self.front]
+                #del self.queue[self.front]
                 self.front = (self.front + 1) % self.size
                 return True
          
