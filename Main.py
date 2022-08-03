@@ -7,35 +7,32 @@ class MyCircularQueue:
         self.front = -1
     def enqueue(self, value: int) -> bool:
         # Write code here
-        if self.is_full():
+        if ((self.rear + 1) % self.size == self.front):
             return False
-        else:
+        else if (self.front == -1):
+            self.front = 0
+            self.rear = 0
+            self.queue[self.rear] = value
             return True
-            if self.front==-1:
-                    self.front=0
-                    self.rear=0
-            else:
-                if self.rear==self.size-1:
-                    self.rear=0
-                else:
-                    self.rear+=1
-            self.queue[self.rear]=value
+        else:
+            self.rear = (self.rear + 1) % self.size
+            self.queue[self.rear] = value
+            
     def dequeue(self) -> bool:
         # Write code here
-        if self.is_empty():
+         if (self.front == -1): 
             return False
-        else:
-            del self.queue[self.front]
+             
+        # condition for only one element
+        else if (self.front == self.rear):
+            temp=self.queue[self.front]
+            self.front = -1
+            self.rear = -1
             return True
-            if self.front==self.rear:
-                self.front=-1
-                self.rear=-1
-            else:
-                if self.front==self.size-1:
-                      self.front=0
-                else:
-                     self.front=(self.front+1)%self.size
-        
+        else:
+            temp = self.queue[self.front]
+            self.front = (self.front + 1) % self.size
+            return True
         
     def get_front(self) -> int:
         # Write code here
@@ -43,12 +40,14 @@ class MyCircularQueue:
     def get_rear(self):
         # Write code here
         return self.rear
+    
     def is_empty(self):
         # Write code here
         if self.front==-1:
             return True
         else:
             return False
+        
     def is_full(self):
         # Write code here
         if (self.rear==(self.size-1) and self.front==0) or (self.front==self.rear+1):
