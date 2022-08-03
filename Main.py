@@ -22,8 +22,6 @@ class MyCircularQueue:
         # Write code here
          if (self.front == -1): 
             return False
-             
-        # condition for only one element
         elif (self.front == self.rear):
             temp=self.queue[self.front]
             self.front = -1
