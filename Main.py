@@ -20,7 +20,7 @@ class MyCircularQueue:
             
     def dequeue(self) -> bool:
         # Write code here
-         if (self.front == -1): 
+        if (self.front == -1): 
             return False
         elif (self.front == self.rear):
             temp=self.queue[self.front]
