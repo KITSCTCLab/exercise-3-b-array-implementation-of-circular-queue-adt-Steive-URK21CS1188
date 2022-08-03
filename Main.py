@@ -9,7 +9,7 @@ class MyCircularQueue:
     def enqueue(self, value: int) -> bool:
         # Write code here
         if is_full():
-            return False:
+            return False
         if self.front==-1:
             self.front=0
             self.rear=0
