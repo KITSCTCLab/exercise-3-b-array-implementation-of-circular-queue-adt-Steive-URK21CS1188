@@ -36,7 +36,7 @@ class MyCircularQueue:
              else:
                 temp = self.queue[self.front]
                 #del self.queue[self.front]
-                self.front = (self.front + 1) % self.size
+                self.front = (self.front + 1)
                 return True
          
     def get_front(self) -> int:
