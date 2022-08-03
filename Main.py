@@ -5,20 +5,7 @@ class MyCircularQueue:
         self.queue = [None]*size
         self.rear = -1
         self.front = -1
-        
-    def enqueue(self,data: int):
-        if ((self.front + 1) % self.size == self.front):
-            return False
-        self.queue.append(data)
-        self.rear = (self.rear + 1) % self.size
-        return True
-    
-    def dequeue(self):
-        if self.front+1==0:
-            return False
-        data = self.queue[self.front]
-        self.front = (self.front + 1) % self.size
-        return True
+   
 """        
     def enqueue(self, data: int):
         if ((self.front + 1) % self.size == self.front):
@@ -47,7 +34,7 @@ class MyCircularQueue:
             self.front = (self.front + 1) % self.size
             return temp
 """
-"""
+
     def enqueue(self, value: int) -> bool:
         # Write code here
         if (self.rear==(self.size-1) and self.front==0) or (self.front==self.rear+1):
@@ -80,14 +67,21 @@ class MyCircularQueue:
                 #del self.queue[self.front]
                 self.front = (self.front + 1)%self.size
                 return True
-   """      
+  
     def get_front(self) -> int:
         # Write code here
-        return self.front
+        if (self.front == -1): 
+            return -1
+        else:
+            return self.queue[self.front]
+        
     def get_rear(self):
         # Write code here
-        return self.rear
-    
+        if (self.front == -1): 
+            return -1
+        else:
+            return self.queue[self.rear]
+        
     def is_empty(self):
         # Write code here
         if self.front==-1:
