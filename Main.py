@@ -9,7 +9,7 @@ class MyCircularQueue:
         # Write code here
         if ((self.rear + 1) % self.size == self.front):
             return False
-        else if (self.front == -1):
+        elif (self.front == -1):
             self.front = 0
             self.rear = 0
             self.queue[self.rear] = value
@@ -24,7 +24,7 @@ class MyCircularQueue:
             return False
              
         # condition for only one element
-        else if (self.front == self.rear):
+        elif (self.front == self.rear):
             temp=self.queue[self.front]
             self.front = -1
             self.rear = -1
