@@ -6,6 +6,33 @@ class MyCircularQueue:
         self.rear = -1
         self.front = -1
         
+    def enqueue(self, data: int):
+        if ((self.front + 1) % self.size == self.front):
+            return False
+        elif (self.front == -1):
+            self.front = 0
+            self.rear = 0
+            self.queue[self.rear] = data
+            return True
+        else:
+            self.rear = (self.rear + 1) % self.size
+            self.queue[self.rear] = data
+            return True
+
+    # Delete an element from the circular queue
+    def dequeue(self):
+        if (self.front == -1):
+            return False
+        elif (self.front == self.rear):
+            temp = self.queue[self.front]
+            self.front = -1
+            self.rear = -1
+            return temp
+        else:
+            temp = self.queue[self.front]
+            self.front = (self.front + 1) % self.size
+            return temp
+"""
     def enqueue(self, value: int) -> bool:
         # Write code here
         if (self.rear==(self.size-1) and self.front==0) or (self.front==self.rear+1):
@@ -36,9 +63,9 @@ class MyCircularQueue:
              else:
                 temp = self.queue[self.front]
                 #del self.queue[self.front]
-                self.front = (self.front + 1)
+                self.front = (self.front + 1)%self.size
                 return True
-         
+   """      
     def get_front(self) -> int:
         # Write code here
         return self.front
